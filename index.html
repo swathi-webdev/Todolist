@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">Todo List</h1>
+            <p class="subtitle">Stay organized and get things done</p>
+        </header>
+
+        <!-- Add Todo Button -->
+        <div class="add-section">
+            <button id="addTodoBtn" class="add-btn">
+                <span class="plus-icon">+</span>
+                Add New Todo
+            </button>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Total:</span>
+                <span id="totalCount" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Active:</span>
+                <span id="activeCount" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Completed:</span>
+                <span id="completedCount" class="stat-value">0</span>
+            </div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+            <button id="clearCompleted" class="filter-btn clear-btn">Clear Completed</button>
+        </div>
+
+        <!-- Todo List -->
+        <div id="todoList" class="todo-list">
+            <div class="empty-state">
+                <div class="empty-icon">📝</div>
+                <p>No todos yet. Add one above!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Todo</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>What would you like to accomplish today?</p>
+                <input type="text" id="todoInput" placeholder="Enter your task..." maxlength="200">
+                <div class="char-count">
+                    <span id="charCount">0</span>/200
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelBtn" class="btn-cancel">Cancel</button>
+                <button id="addBtn" class="btn-add">Add Todo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Todo</h2>
+                <span class="close-edit">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="editInput" placeholder="Edit your task..." maxlength="200">
+                <div class="char-count">
+                    <span id="editCharCount">0</span>/200
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelEditBtn" class="btn-cancel">Cancel</button>
+                <button id="saveEditBtn" class="btn-add">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
